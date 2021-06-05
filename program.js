@@ -50,7 +50,7 @@ function binary_search(){
 
   //左端と右端にデータがある間は処理を繰り返す
   while(left<=right){
-    
+
     //左右の真ん中を表す添え字
     var middle=Math.floor((left+right)/2);
     console.log(middle);
@@ -72,7 +72,7 @@ function binary_search(){
     }
   }
 
-  console.log(a[index]+'\n'+index+'番目');  
+  console.log(a[index]+'\n'+index+'番目');
 }
 
 
@@ -88,7 +88,7 @@ function bubble_sort(array){
         let tmp=array[j-1];
         array[j-1]=array[j];
         array[j]=tmp;
-      }      
+      }
     }
     // console.log(array);
   }
