@@ -97,3 +97,23 @@ function bubble_sort(array){
   return array;
 }
 
+//thisの練習
+function test(){
+  console.log(this);
+  console.log(this['a']);
+}
+var obj = {"a":"A"};
+obj.test = test;
+obj.prop="aaaa";
+obj.test();
+
+var obj2={
+  test2:function(){return this;},
+  alert:function(msg){console.log(msg);},
+  push:function(push){document.write(push);}
+}
+var test2=obj2.test2;
+console.log(obj2);
+obj2.test2().alert("hello wolrd");
+obj2.test2().push("hello wolrd");
+// test2().alert("hello");
