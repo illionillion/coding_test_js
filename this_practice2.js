@@ -58,3 +58,36 @@ newInstance2.printId();
 console.log('%c '+newInstance,'color:blue;');
 
 //class
+class MyClass{
+  constructor(id){
+   this.id=id;
+  }
+
+  printId(id){
+    console.log(this.id);
+  }
+
+}
+const newInstance3=new MyClass(674);
+newInstance3.printId();
+const num=300;
+const outer={
+  value:100,
+  value2:num*3,
+  func1:function(){
+    console.log(this);
+    console.log(this.value);
+    let _that=this;
+    const func2=function(){
+      console.log(this);
+      console.log(_that.value);
+
+      const func3=function(){
+        console.log(this);
+        console.log(_that.value2);
+      }();
+    }();
+  }
+}
+
+outer.func1();
