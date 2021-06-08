@@ -91,3 +91,40 @@ const outer={
 }
 
 outer.func1();
+
+
+const video={
+  id:1,
+  title:'abc',
+  tags:['a','b','c','d'],
+  play(){
+    console.log(this);
+    console.log(this.id);
+    console.log(this.title);
+  },
+  showTags(){
+    this.tags.forEach(function(tag){
+
+      console.log(this.title,tag);
+
+    },this);
+  }
+}
+
+video.time_length=900;
+video.stop=function(){
+  console.log(this.time_length);
+}
+
+function Video(title){
+  this.title=title;
+  this.title2=title+'2';
+  console.log(title);
+  console.log(this);
+}
+
+video.play();
+video.stop();
+const v=new Video('a');
+const v2=new Video(video.title);
+video.showTags();
