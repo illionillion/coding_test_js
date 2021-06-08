@@ -58,6 +58,7 @@ myObject3.increment();
 console.log(myObject3.value);//1
 
 
+//apply, call呼び出しパターン
 var myObject4={
   value:1,
   show:function(){
