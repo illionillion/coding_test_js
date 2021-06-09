@@ -128,3 +128,11 @@ video.stop();
 const v=new Video('a');
 const v2=new Video(video.title);
 video.showTags();
+
+var array=[1,2,3,4,5];
+console.log(array[array.length-1]);
+console.log(array.length);
+for(let i=0;i<array.length;i++){
+  console.log(array[i]);
+  console.log(i);
+}
