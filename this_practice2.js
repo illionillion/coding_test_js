@@ -97,6 +97,7 @@ const video={
   id:1,
   title:'abc',
   tags:['a','b','c','d'],
+  array:[1,2,3,4,5],
   play(){
     console.log(this);
     console.log(this.id);
@@ -110,7 +111,10 @@ const video={
     },this);
   }
 }
-
+for(let i=0;i<video.array.length;i++){
+  console.log(video.array[i]);
+  // console.log(i);
+}
 video.time_length=900;
 video.stop=function(){
   console.log(this.time_length);
@@ -131,8 +135,8 @@ video.showTags();
 
 var array=[1,2,3,4,5];
 console.log(array[array.length-1]);
-console.log(array.length);
+// console.log(array.length);
 for(let i=0;i<array.length;i++){
   console.log(array[i]);
-  console.log(i);
+  // console.log(i);
 }
