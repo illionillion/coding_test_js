@@ -4,8 +4,8 @@ console.log('hello world');
 //線形探索
 function liner_search(){
   //検索する配列データ
-  var a=[1,2,3,4,5,6,11,34,5];
-
+  var a=[1,2,13,10,12,15,3,4,5,6,11,34,5];
+  a=selection_sort(a);
   //検索する値
   var search_value=document.querySelector('#number').value;
 
@@ -83,6 +83,7 @@ function bubble_sort(array){
   for(let i=0;i<array.length;i++){
     //配列の左側から比較していく
     for(let j=array.length;i<j;j--){
+    // for(let j=1;j<array.length;j++){
       //右側の数より左側の数が大きい場合は入れ替える
       if(array[j]<array[j-1]){
         let tmp=array[j-1];
@@ -96,6 +97,40 @@ function bubble_sort(array){
   console.log(array);
   return array;
 }
+
+//選択ソート
+// var array=[1,3,2,5,4,7,6,9,8,11,10];
+
+function selection_sort(array){
+  for(let i=0;i<array.length;i++){
+    //最小値を一番右の値と仮定  
+    let min=array[i];
+    
+    //最小値の配列の添え字も保存
+    let k=i;
+  
+    //配列の隣の位置から最後まで最小値との比較を繰り返す
+    for(let j=i+1;j<array.length;j++){
+      //最小値の方が大きかったら、その値が最小値になる
+      if(min>array[j]){
+        min=array[j];
+        //最小値のある添え字も更新
+        k=j;
+      }
+    }
+    //現段階の最小値を仮保存
+    let tmp=array[i];
+    //実際の最小値を一番左へ
+    array[i]=array[k];
+    //現段階の最小値を交換
+    array[k]=tmp;
+  
+  }
+  
+  console.log(array);
+  return array;
+}
+
 
 //thisの練習
 function test(){
