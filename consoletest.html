@@ -25,10 +25,12 @@
 
     if(reset_console_flag){
         for(let i=0;i<all_num;i++){                                           //window.consoleの総数分繰り返す
-            let change=String(window.console[Object.keys(window.console)[i]]);//log,trace,count...を取得
-            change=(change.replace('function ', ''));                         //function log() { [native code] }になるのでlogだけになるように置き換える
-            change=(change.replace('() { [native code] }', ''));              //上に同じく
-            window.console[change] = function(s){return;};                    //空の値を返す変数を上書き
+            let change=window.console[Object.keys(window.console)[i]];//log,trace,count...を取得
+            // let change=String(window.console[Object.keys(window.console)[i]]);//log,trace,count...を取得
+            // change=(change.replace('function ', ''));                         //function log() { [native code] }になるのでlogだけになるように置き換える
+            // change=(change.replace('() { [native code] }', ''));              //上に同じく
+            // window.console[change] = function(s){return;};                    //空の値を返す変数を上書き
+            window.console[change.name] = function(s){return;};                    //空の値を返す変数を上書き
         }
     }
 
@@ -41,7 +43,7 @@
         console.count(i);
     }
 
-    var now_time=performance.now(); 
+    var now_time=performance.now();
     console.log('start\n'+now_time+'ms');
     console.time('loop time');
     var a=0;

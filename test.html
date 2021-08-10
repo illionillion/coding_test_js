@@ -26,10 +26,12 @@
       if(remove_console_flag){
         save_console=Object.assign({},window.console);                        //consoleのオブジェクトをコピー
         for(let i=0;i<all_num;i++){                                           //window.consoleの総数分繰り返す
-            let change=String(window.console[Object.keys(window.console)[i]]);//log,trace,count...を取得
-            change=(change.replace('function ', ''));                         //function log() { [native code] }になるのでlogだけになるように置き換える
-            change=(change.replace('() { [native code] }', ''));              //上に同じく
-            window.console[change] = function(s){return;};                    //空の値を返す変数を上書き
+            let change=window.console[Object.keys(window.console)[i]];//log,trace,count...を取得
+            // let change=String(window.console[Object.keys(window.console)[i]]);//log,trace,count...を取得
+            // change=(change.replace('function ', ''));                         //function log() { [native code] }になるのでlogだけになるように置き換える
+            // change=(change.replace('() { [native code] }', ''));              //上に同じく
+            // window.console[change] = function(s){return;};                    //空の値を返す変数を上書き
+            window.console[change.name] = function(s){return;};                    //空の値を返す変数を上書き
         }
         console.log('表示されない');
         console.count('表示されない');
