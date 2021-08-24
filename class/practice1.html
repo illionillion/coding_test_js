@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class</title>
+</head>
+<body>
+  <script>
+    //これは古い書き方？
+    function add(a){
+      this.num=a;
+    }
+    add.prototype.plus=function(){
+      this.num++;
+    }
+
+    const fn=new add(0);
+    setInterval(function(){fn.plus();console.log(fn);},1000)
+
+    class User {
+
+      constructor( name, age ) {
+          this.name = name;
+          this.age = age;
+      }
+
+      takename(){
+        return this.name;
+      }
+
+    }
+
+    //インスタンスを生成する
+    const taro = new User('太郎', 32);
+
+    console.log(taro.takename());//this.name
+
+  </script>
+</body>
+</html>
