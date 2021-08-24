@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calllback</title>
+</head>
+<body>
+  <script>
+    let num=0;
+    function add(a,b,c){//関数を変数に入れることができる
+      return a+b+c;
+    }
+    const addF = add;
+    const deb_log=console.log;//既存の関数も変数に入れれる
+    // setInterval(function(){num++;console.log(num);console.log(addF(num,num,num));},1000);//これがコールバック関数
+    console.log(add(1,2,3));
+    console.log(addF(1,2,3));
+    deb_log("テスト");
+
+    // 関数を2回実行する関数！！
+    function doTwice(func) {
+      func(); // 1回目！
+      func(); // 2回目！
+      func(); // 3回目！
+      // for (let i = 0; i < 3; i++) {
+      //   func();        
+      // }
+    }
+
+    // あいさつするだけの関数
+    function hello() {
+      console.log('Hello!');
+    }
+
+    // あいさつを2回実行する
+    doTwice(hello);
+    doTwice(
+      function(){num++;console.log(num);}
+    )
+
+  </script>
+</body>
+</html>

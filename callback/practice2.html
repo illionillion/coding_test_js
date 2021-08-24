@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calllback</title>
+</head>
+<body>
+  <input type="button" id="btn" value="click!!">
+  <script>
+    let num=0;
+    // 関数に値を渡しつつ2回実行する関数！！
+    function doTwiceWithValue(func) {
+      func('Hello!'+num);        // 1回目！
+      func('I am here!!!'+num);  // 2回目！
+      func('Who are you!!!'+num);// 3回目！
+    }
+
+    // 受け取ったmessageを表示するだけの関数を渡す
+    doTwiceWithValue(function(message) {
+      num++;
+      console.log(message);
+    });
+
+    function click(){
+      alert('ok');
+    }
+
+    document.getElementById('btn').addEventListener('click',click)
+
+    
+    var sample = new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve();
+        }, 1000);
+    });
+
+    sample.then(function(value) {
+        console.log("Promise成功!");
+    });
+
+    console.log("先に出力");
+
+  </script>
+</body>
+</html>
