@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // while(true){
+    //   ////害悪すぎるXSS
+    //   // console.log('んっっほ～～♡');
+    //   // alert('んっっほ～～♡');
+    // }
+    // while(true){
+
+    // alert("ばぁ～かぁ☆");
+
+    // }
+
+  // const code = [10,20,30,40,50,60,70,70,80,90,100];
+  // const tannka = [100,200,300,400,500,600,700,700,800,900,1000];
+  const code={10:100,20:200,30:300,40:400,50:500,60:600,70:700,70:700,80:800,90:900,100:1000};
+
+  let sw=0;
+  let search=90; 
+  let i=0;
+
+  while(sw!=1 && i<Object.keys(code).length ){ //ここ大事
+    console.log(typeof(Object.keys(code)[i]));
+    if(search==Object.keys(code)[i]){
+      sw=1;
+    }else{
+      i++;
+    }
+  }
+
+  if(sw===1){
+    console.log('商品コード:'+Object.keys(code)[i]+'\n単価:'+code[Object.keys(code)[i]]+'\nindex:'+i);
+  }else{
+    console.error('error');
+  }
+
+  </script>
+</body>
+</html>
