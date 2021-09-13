@@ -4,27 +4,52 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>挿入ソート</title>
   <script>
 
     let arr=[10,3,1,12,6,4];
-    const n=arr.length; //総数
+    const n=arr.length;              //総数
     console.table(arr);
 
     let i=1;
 
-    while (i<=n) {
-      let j=i;          //arr[j]の値とその右隣の値を入れ替える
-      while (j>=1&&arr[j]<arr[j-1]) {
+    while (i<=n) {                   //外ループ
+      let j=i;                       //arr[j]の値とその右隣の値を入れ替える
+
+      console.log(arr[j]+"<"+arr[j-1]);
+      while (j>=1&&arr[j]<arr[j-1]) {//内ループ
         let w=arr[j];
         arr[j]=arr[j-1];
         arr[j-1]=w;
-        j--;
         console.table(arr);
+        j--;
       }
       i++;
     }
     console.table(arr);
+
+    //平均
+    i=0;
+    let result=0;
+    let average=0;
+    while (i<n) {
+      result+=arr[i];
+      i++;
+    }
+    average=result/n;
+    console.log(average);
+
+    //分散
+    i=0;
+    result=0;
+    let bunsan=0;
+    while (i<n) {
+      result+=(arr[i]-average)**2;  //べき乗
+      // result+=Math.pow(arr[i]-average,2);
+      i++;
+    }
+    bunsan=result/n;
+    console.log(bunsan);//表計算使ったら18って出た。15が出るのは間違い？
 
   </script>
 </head>
