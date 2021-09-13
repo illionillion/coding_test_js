@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shell_sort</title>
+</head>
+<body>
+  <script>
+    // let arr=[3,11,4,10,6,12,1,7];
+    // const n=arr.length;
+
+    // let h=n;
+    // let i=0;
+    // let sw,s;
+    // console.table(arr);
+
+    // while (h>1) {
+    //   h=h/2;
+    //   i=0;
+    //   while ((i+h)<=n) {
+    //     s=i;
+    //     sw=0;
+    //     while(s>-1 && sw!=1){
+    //       if (arr[s]>arr[s+h]) {
+    //         let w=arr[s];
+    //         arr[s]=arr[s+h];
+    //         arr[s+h]=w;
+    //         s=s-h;
+    //       }else{
+    //         sw=1;
+    //       }
+    //     }
+    //     i++;
+    //   }      
+    // }
+    // console.table(arr);
+
+    //未整列のデータ
+    var a = [10,3,1,9,7,6,8,2,4,5,11,13,15,14,12];
+    console.table(a);
+
+    //「グループ分けの間隔を半分にしていく繰り返し」
+    for(var step = parseInt(a.length/2); step > 0; step = parseInt(step/2)){
+
+        //間隔をあけて挿入ソートを行う
+        //挿入する値を１つずつ取り出す繰り返し
+        for(var i = step; i < a.length; i++){
+            //挿入する値を一時的に保存する
+            var tmp = a[i];
+            //取り出した位置から前に向かって比較するfor文
+            for(var j = i; j >= step; j -= step){
+                if(a[j-step]>tmp){
+                    //挿入する値が小さい場合、その値をstep幅だけ後ろへずらす
+                    a[j] = a[j - step];
+                }else{
+                    //挿入する値が小さくなければ、処理を止める
+                    break;
+                }
+            }
+            //ずらす処理が終わったところに「挿入する値」をいれる
+            a[j] = tmp;
+            }
+        }
+
+    //ソート後の値を表示
+    console.table(a);
+    // console.log(a);
+  </script>
+</body>
+</html>
