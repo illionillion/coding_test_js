@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    let arr=[10,3,1,12,6,4];
+    const n=arr.length; //総数
+    console.table(arr);
+
+    let i=1;
+
+    while (i<=n) {
+      let j=i;          //arr[j]の値とその右隣の値を入れ替える
+      while (j>=1&&arr[j]<arr[j-1]) {
+        let w=arr[j];
+        arr[j]=arr[j-1];
+        arr[j-1]=w;
+        j--;
+        console.table(arr);
+      }
+      i++;
+    }
+    console.table(arr);
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
