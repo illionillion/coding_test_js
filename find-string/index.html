@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>find-string</title>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+    function getStringById(id) { //関数にidを入れて要素を返す。
+      var element = document.getElementById(id);
+      var str = element.value;
+      if (str == undefined) {
+        str = element.innerHTML;
+      }
+      return (str == undefined) ? "" : str;
+    }
+  </script>
+</head>
+<body>
+  <div id="area1">
+    大事な人と毎日食べるものだから、
+    手をかけなくても、おいしいものを
+    国内最大規模の食品販売サイトＯｉｓｉｘ(おいしっくす)。
+    安心はあたりまえ、おいしく・忙しくてもつづけやすく・カラダにいい食材を毎週、
+    旬の野菜やフルーツ・パン・牛乳・お肉など2400商品の中から、お客様のご希望に
+    あわせてお好きな時間に、全国にお届けしています。
+  </div><br>
+  <input id="search" type="text" value="しく・忙しく">
+
+  <script type="text/javascript" src="js/program.js"></script>
+  <input type="button" onClick="findTextArea('area1','search');" value="find">
+  <!-- 末尾1 -->
+  
+</body>
+</html>
