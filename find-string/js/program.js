@@ -1,3 +1,4 @@
+//力任せ法
 String.prototype.find = function(str) {
   var text_idx_len = this.length - str.length + 1;//searchの文字列の最後でfor文が終わるようにするため
   // console.log(this);

@@ -10,6 +10,8 @@
       if (str == undefined) {
         str = element.innerHTML;
       }
+      // console.log(str);
+      // console.log((str == undefined) ? "":str);
       return (str == undefined) ? "" : str;
     }
   </script>
@@ -28,6 +30,10 @@
   <script type="text/javascript" src="js/program.js"></script>
   <input type="button" onClick="findTextArea('area1','search');" value="find">
   <!-- 末尾1 -->
+
+  <script src="js/findKMP.js"></script>
+  <input type="button" onClick="findTextAreaKMP('area1','search');" value="findKMP">
+  <!-- 末尾2 -->
   
 </body>
 </html>
