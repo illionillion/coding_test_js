@@ -5,6 +5,8 @@ String.prototype.getKMPNext = function() {
   var n = next[0];
   for (var i = 0; i < this.length; i++) {
     while (n > -1) {
+      console.log(this.charAt(i));
+      console.log(this.charAt(n));
       if (this.charAt(i) == this.charAt(n)) { break; }
       n = next[n];
     }
@@ -21,7 +23,8 @@ String.prototype.getKMPNext = function() {
 }
  
 String.prototype.findKMP = function(str) {
-  var next = str.getKMPNext();
+  var next = str.getKMPNext();//検索する文字
+  console.log(next);//なにかの配列が来た
  
   var text_idx_len = this.length - str.length + 1;
   var n = 0;
